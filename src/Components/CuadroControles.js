@@ -1,5 +1,5 @@
 import '../Styles/CuadroControles.css';
-import Personaje from './Personaje';
+import Personaje from './Personaje2';
 import Tecla from './Tecla';
 import { useEffect, useState } from 'react';
 const CuadroControles = () => {
