@@ -1,41 +1,58 @@
 import '../Styles/CuadroControles.css';
 import Personaje from './Personaje';
+import Selectores from './Selectores';
 import Tecla from './Tecla';
 import { useEffect, useState } from 'react';
 const CuadroControles = () => {
-    const [isAActive, setIsAActive] = useState(false);
+    const [isSActive, setIsSActive] = useState(false);
+    const [isAActive, setIsLeftArrowActive] = useState(false);
     const [isWActive, setIsWActive] = useState(false);
     const [isDActive, setIsDActive] = useState(false);
-    const [isSActive, setIsSActive] = useState(false);
-    const [isUpArrowActive, setIsUpArrowActive] = useState(false);
+    const [isEnterActive, setIsEnterActive] = useState(false);
+    const [isSpaceActive, setIsSpaceActive] = useState(false);
     useEffect(() => {
         const switchCases = (key, toggle) => {
             switch (key.toLowerCase()) {
-                case 'a':
-                    setIsAActive(toggle)
-                    break;
-                case 'w':
-                    setIsWActive(toggle)
-                    break;
-                case 'd':
-                    setIsDActive(toggle)
-                    break;
-                case 's':
+                case 'arrowdown':
                     setIsSActive(toggle)
                     break;
+                case 'keys':
+                    setIsSActive(toggle)
+                    break;
+                case 'arrowleft':
+                    setIsLeftArrowActive(toggle)
+                    break;
+                case 'keya':
+                    setIsLeftArrowActive(toggle)
+                    break;
                 case 'arrowup':
-                    setIsUpArrowActive(toggle)
+                    setIsWActive(toggle)
+                    break;
+                case 'keyw':
+                    setIsWActive(toggle)
+                    break;
+                case 'arrowright':
+                    setIsDActive(toggle)
+                    break;
+                case 'keyd':
+                    setIsDActive(toggle)
+                    break;
+                case 'enter':
+                    setIsEnterActive(toggle)
+                    break;
+                case 'space':
+                    setIsSpaceActive(toggle)
                     break;
                 default:
                     break;
               }
         }
         const handleKeyDown = (event) => {
-          let key = event.key || String.fromCharCode(event.keyCode || event.which);
+          let key = event.code || String.fromCharCode(event.keyCode || event.which);
           switchCases(key, true)
         }
         const handleKeyUp = (event) => {
-          let key = event.key || String.fromCharCode(event.keyCode || event.which);
+          let key = event.code || String.fromCharCode(event.keyCode || event.which);
           switchCases(key, false)
         }
     
@@ -49,45 +66,55 @@ const CuadroControles = () => {
         };
     }, []);
     
-    
     return (
         <div className="CuadroControles">
             <div className="interior">
                 <div className='interiorEscenario'>
+                <div>
+                    <p>Use arrows A← W↑ D→ S↓ to navigate</p>
+                    <p>Press space ⎵ to select an element</p>
+                    <p>Press enter ↵ to accept in an input element (writing)</p>
+                </div>
+                    <Selectores/>
                     <Personaje
                         isAActive = { isAActive }
                         isWActive = { isWActive }
                         isDActive = { isDActive }
                         isSActive = { isSActive }
-                        isUpArrowActive = { isUpArrowActive }
-                    />
+                        isEnterActive = { isEnterActive }
+                        isSpaceActive = { isSpaceActive }/>
                 </div>
                 <div className='interiorControles'>
                     <Tecla 
-                        keyword = { 'A' } 
+                        keyword = { 'A←' } 
                         className = { 'AKeyword' } 
                         isActive = { isAActive } 
-                        setActive = { setIsAActive }/>
+                        setActive = { setIsLeftArrowActive }/>
                     <Tecla 
-                        keyword = { 'W' } 
+                        keyword = { 'W↑' } 
                         className = { 'WKeyword' } 
                         isActive = { isWActive } 
                         setActive = { setIsWActive }/>
                     <Tecla 
-                        keyword = { 'D' } 
+                        keyword = { 'D→' } 
                         className = { 'DKeyword' } 
                         isActive = { isDActive }  
                         setActive = { setIsDActive }/>
                     <Tecla 
-                        keyword = { 'S' } 
+                        keyword = { '↵' } 
                         className = { 'SKeyword' } 
+                        isActive = { isEnterActive }  
+                        setActive = { setIsEnterActive }/>
+                    <Tecla 
+                        keyword = { '⎵' }
+                        className = { 'UpArrowKeyword' } 
+                        isActive = { isSpaceActive }  
+                        setActive = { setIsSpaceActive }/>
+                    <Tecla
+                        keyword = { 'S↓' }
+                        className = { 'DownArrowKeyword' } 
                         isActive = { isSActive }  
                         setActive = { setIsSActive }/>
-                    <Tecla 
-                        keyword = { '↑' }
-                        className = { 'UpArrowKeyword' } 
-                        isActive = { isUpArrowActive }  
-                        setActive = { setIsUpArrowActive }/>
                 </div>
             </div>
         </div>

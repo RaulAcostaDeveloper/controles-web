@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import '../Styles/Personaje.css';
-const Personaje = ({ isAActive, isWActive, isDActive, isSActive, isUpArrowActive }) => {
+const Personaje = ({ isAActive, isWActive, isDActive, isSActive, isEnterActive, isSpaceActive }) => {
     const [ isJumping, setIsJumping ] = useState(false);
     const [ isRunning, setIsRunning ] = useState(false);
     const [ isShooting, setIsShooting] = useState(false);
@@ -55,13 +55,13 @@ const Personaje = ({ isAActive, isWActive, isDActive, isSActive, isUpArrowActive
         }
       
         // Shooting
-        setIsShooting(isUpArrowActive);
+        setIsShooting(isSpaceActive);
       
         // Dancing
-        const dancing = isSActive && !isJumping;
+        const dancing = isEnterActive && !isJumping;
         setIsDancing(dancing);
 
-      }, [isAActive, isWActive, isDActive, isSActive, isUpArrowActive, isJumping, isShooting, isDancing]);
+      }, [isAActive, isWActive, isDActive, isEnterActive, isSpaceActive, isJumping, isShooting, isDancing]);
 
     // Detección de eventos
     useEffect(()=>{

@@ -4,10 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .CuadroControles .interior{
     width: 80%;
-    height: 50vh;
+    height: 80vh;
     background-color: #777a7f;
     display: flex;
     justify-content: center;
@@ -20,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    flex-wrap: wrap;
 }
 .CuadroControles .interior .interiorControles{
     position: relative;
@@ -44,10 +46,15 @@
 .CuadroControles .SKeyword{
     position: absolute;
     top: 54px;
-    left: 64px;
+    left: 240px;   
 }
 .CuadroControles .UpArrowKeyword{
     position: absolute;
     top: 54px;
     left: 180px;    
+}
+.CuadroControles .DownArrowKeyword{
+    position: absolute;
+    top: 54px;
+    left: 64px;
 }
