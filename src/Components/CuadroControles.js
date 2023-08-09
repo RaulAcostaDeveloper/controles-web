@@ -71,9 +71,9 @@ const CuadroControles = () => {
             <div className="interior">
                 <div className='interiorEscenario'>
                 <div>
-                    <p>Use arrows A← W↑ D→ S↓ to navigate</p>
-                    <p>Press space ⎵ to select an element</p>
-                    <p>Press enter ↵ to accept in an input element (writing)</p>
+                    <p>Usa las flechas A← W↑ D→ S↓ para <b>viajar</b> entre elementos</p>
+                    <p>Presiona espacio ⎵ para <b>seleccionar</b> un elemento</p>
+                    <p>Presiona enter ↵ para <b>continuar desde un elemento de escritura</b></p>
                 </div>
                     <Selectores/>
                     <Personaje

@@ -59,7 +59,7 @@
 // 
 
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import '../Styles/Candy.css';
 const Candy = ({isActive, handleActive, desactiveAll, toggleActive, activeLeft, activeRight, activeTop, activeBottom, handleSelect, idInput, children}) => {
     // handle keyboard
@@ -76,6 +76,11 @@ const Candy = ({isActive, handleActive, desactiveAll, toggleActive, activeLeft, 
             }
         };
 
+        // Implementar ENTER para seleccionar
+        // Ocurre que al presionar Enter para salir del input, se ejecuta 
+        // el selectInput, y se activa el addEventListener, y detecta el enter, y se selecciona el 
+        // siguiente elemento, y se activa con el enter y se sale...
+        // El problema está que al cambiarse al elemento bottom, este se ejecuta inmediatamente.
         const switchCases = (key) => {
             const keyActions = {
                 arrowdown: activeBottom,
@@ -87,8 +92,10 @@ const Candy = ({isActive, handleActive, desactiveAll, toggleActive, activeLeft, 
                 arrowright: activeRight,
                 keyd: activeRight,
                 space: handleSelect,
+                tab: (e) => { onTabCandy(e) },
+                // enter: handleSelect,
               };
-
+              console.log('key.toLowerCase() ', key.toLowerCase());
               const action = keyActions[key.toLowerCase()];
               if (action) {
                 toggleActive(false);
@@ -116,6 +123,14 @@ const Candy = ({isActive, handleActive, desactiveAll, toggleActive, activeLeft, 
             toggleActive(true);
         }
     };
+
+    const onTabCandy = () => {
+        if (activeRight) {
+            activeRight();
+        } else {
+            activeBottom();
+        }
+    }
 
     const selectInput = (toggle, idInput)=> {
         const inputElement = document.getElementById(idInput);
