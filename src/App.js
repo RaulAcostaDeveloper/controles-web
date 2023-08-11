@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Controles Web</h1>
+        <h1>Interfaz con controles Web</h1>
       </header>
       <CuadroControles/>
     </div>

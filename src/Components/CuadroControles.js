@@ -82,54 +82,8 @@ const CuadroControles = () => {
                         <p>Presiona enter ↵ para <b>continuar desde un elemento de escritura</b></p>
                     </div>
                     <Selectores/>
+                    <a className='liga' target='_blank' href='https://controles-personaje-web.vercel.app/'>Click aquí para ver al personaje que se mueve con controles</a>
                 </div>
-                <div>
-                    <p>Nota: El problema con este proyecto es que la barra espaciadora también sirve para dar scroll en el navegador.</p>
-                    <p></p>
-
-                </div>
-                <div className='interiorEscenario'>
-                    <Personaje
-                        isAActive = { isAActive }
-                        isWActive = { isWActive }
-                        isDActive = { isDActive }
-                        isSActive = { isSActive }
-                        isEnterActive = { isEnterActive }
-                        isSpaceActive = { isSpaceActive }/>
-                </div>
-                <div className='interiorControles'>
-                    <Tecla 
-                        keyword = { 'A←' } 
-                        className = { 'AKeyword' } 
-                        isActive = { isAActive } 
-                        setActive = { setIsLeftArrowActive }/>
-                    <Tecla 
-                        keyword = { 'W↑' } 
-                        className = { 'WKeyword' } 
-                        isActive = { isWActive } 
-                        setActive = { setIsWActive }/>
-                    <Tecla 
-                        keyword = { 'D→' } 
-                        className = { 'DKeyword' } 
-                        isActive = { isDActive }  
-                        setActive = { setIsDActive }/>
-                    <Tecla 
-                        keyword = { '↵' } 
-                        className = { 'SKeyword' } 
-                        isActive = { isEnterActive }  
-                        setActive = { setIsEnterActive }/>
-                    <Tecla 
-                        keyword = { '⎵' }
-                        className = { 'UpArrowKeyword' } 
-                        isActive = { isSpaceActive }  
-                        setActive = { setIsSpaceActive }/>
-                    <Tecla
-                        keyword = { 'S↓' }
-                        className = { 'DownArrowKeyword' } 
-                        isActive = { isSActive }  
-                        setActive = { setIsSActive }/>
-                </div>
-
             </div>
         </div>
     )

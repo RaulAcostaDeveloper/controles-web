@@ -4,7 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+.CuadroControles .liga{
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
 }
 .CuadroControles .interior{
     width: 80%;
@@ -22,6 +27,7 @@
     align-items: flex-end;
     flex-wrap: wrap;
 }
+
 .CuadroControles .interior .interiorControles{
     position: relative;
     width: 230px;
