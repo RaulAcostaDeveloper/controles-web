@@ -41,6 +41,7 @@ const CuadroControles = () => {
                     setIsEnterActive(toggle)
                     break;
                 case 'space':
+
                     setIsSpaceActive(toggle)
                     break;
                 default:
@@ -48,12 +49,17 @@ const CuadroControles = () => {
               }
         }
         const handleKeyDown = (event) => {
+            
+            console.log(event);
           let key = event.code || String.fromCharCode(event.keyCode || event.which);
-          switchCases(key, true)
+          switchCases(key, true);
+          if (key.toLowerCase() == 'space') {
+            // No permite el scroll por space pero no puedes dejar espacios en inputs.
+          }
         }
         const handleKeyUp = (event) => {
           let key = event.code || String.fromCharCode(event.keyCode || event.which);
-          switchCases(key, false)
+          switchCases(key, false);
         }
     
         // Agregar el evento 'keydown' al componente montado
@@ -70,12 +76,19 @@ const CuadroControles = () => {
         <div className="CuadroControles">
             <div className="interior">
                 <div className='interiorEscenario'>
-                <div>
-                    <p>Usa las flechas A← W↑ D→ S↓ para <b>viajar</b> entre elementos</p>
-                    <p>Presiona espacio ⎵ para <b>seleccionar</b> un elemento</p>
-                    <p>Presiona enter ↵ para <b>continuar desde un elemento de escritura</b></p>
-                </div>
+                    <div>
+                        <p>Usa las flechas A← W↑ D→ S↓ para <b>viajar</b> entre elementos</p>
+                        <p>Presiona espacio ⎵ para <b>seleccionar</b> un elemento</p>
+                        <p>Presiona enter ↵ para <b>continuar desde un elemento de escritura</b></p>
+                    </div>
                     <Selectores/>
+                </div>
+                <div>
+                    <p>Nota: El problema con este proyecto es que la barra espaciadora también sirve para dar scroll en el navegador.</p>
+                    <p></p>
+
+                </div>
+                <div className='interiorEscenario'>
                     <Personaje
                         isAActive = { isAActive }
                         isWActive = { isWActive }
@@ -116,6 +129,7 @@ const CuadroControles = () => {
                         isActive = { isSActive }  
                         setActive = { setIsSActive }/>
                 </div>
+
             </div>
         </div>
     )

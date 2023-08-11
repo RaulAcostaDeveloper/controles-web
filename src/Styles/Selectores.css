@@ -1,6 +1,7 @@
 .ContainerSelectores{
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
-    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
